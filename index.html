@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshPicks - Your Fresh Fruit Groceries</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .hero-bg {
+            background-image: url('https://images.unsplash.com/photo-1528825871115-3581a5387919?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+    <nav class="bg-white shadow-md fixed w-full z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-green-600">FreshPicks</h1>
+                </div>
+                <div class="flex items-center md:hidden">
+                    <button id="nav-toggle" class="text-gray-700 hover:text-green-600 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="nav-menu"
+                    class="hidden md:flex md:items-center md:space-x-4 absolute md:static top-16 left-0 w-full md:w-auto bg-white md:bg-transparent shadow-md md:shadow-none">
+                    <div class="flex flex-col md:flex-row md:space-x-4 p-4 md:p-0">
+                        <a href="#home" class="text-gray-700 hover:text-green-600 py-2 md:py-0">Home</a>
+                        <a href="#products" class="text-gray-700 hover:text-green-600 py-2 md:py-0">Products</a>
+                        <a href="#about" class="text-gray-700 hover:text-green-600 py-2 md:py-0">About</a>
+                        <a href="#contact" class="text-gray-700 hover:text-green-600 py-2 md:py-0">Contact</a>
+                        <a href="#contact" class="text-gray-700 hover:text-green-600 py-2 md:py-0">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-bg h-screen flex items-center justify-center text-center text-white">
+        <div class="bg-black bg-opacity-50 p-8 rounded-lg">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">Fresh Fruits Delivered to Your Door</h2>
+            <p class="text-lg md:text-xl mb-6">Shop the freshest, juiciest fruits sourced directly from local farms.</p>
+            <a href="#products" class="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700">Shop Now</a>
+        </div>
+    </section>
+
+    <section id="about" class="py-16 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-800 text-center mb-8">About FreshPicks</h2>
+            <p class="text-lg text-gray-600 text-center">At FreshPicks, we’re passionate about delivering the freshest
+                fruits from local farms to your table in Owerri, Imo State. Our mission is to provide high-quality
+                sustainably sourced produce with a seamless shopping experience.</p>
+        </div>
+    </section>
+
+    <section id="products" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-800 text-center mb-8">Our Fresh Fruits</h2>
+            <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden">
+                    <img src="Apple.png" alt="Apples" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Fresh Apples</h3>
+                        <p class="text-gray-600">$2.99/kg</p>
+                        <div class="mt-4 flex items-center">
+                            <input type="number" min="1" value="1" class="w-16 p-1 border rounded mr-2"
+                                id="quantity-apples">
+                            <button onclick="addToCart('Fresh Apples', 2.99, 'apples')"
+                                class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Add to
+                                Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden">
+                    <img src="banana.png" alt="Bananas" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Ripe Bananas</h3>
+                        <p class="text-gray-600">$1.99/kg</p>
+                        <div class="mt-4 flex items-center">
+                            <input type="number" min="1" value="1" class="w-16 p-1 border rounded mr-2"
+                                id="quantity-bananas">
+                            <button onclick="addToCart('Ripe Bananas', 1.99, 'bananas')"
+                                class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Add to
+                                Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden">
+                    <img src="orange.webp" alt="Oranges" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Juicy Oranges</h3>
+                        <p class="text-gray-600">$3.49/kg</p>
+                        <div class="mt-4 flex items-center">
+                            <input type="number" min="1" value="1" class="w-16 p-1 border rounded mr-2"
+                                id="quantity-oranges">
+                            <button onclick="addToCart('Juicy Oranges', 3.49, 'oranges')"
+                                class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Add to
+                                Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1582979512210-99b6a53386f9?auto=format&fit=crop>w=500&q=60"
+                        alt="Strawberries" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Sweet Strawberries</h3>
+                        <p class="text-gray-600">$4.99/kg</p>
+                        <div class="mt-4 flex items-center">
+                            <input type="number" min="1" value="1" class="w-16 p-1 border rounded mr-2"
+                                id="quantity-strawberries">
+                            <button onclick="addToCart('Sweet Strawberries', 4.99, 'strawberries')"
+                                class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Add to
+                                Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden">
+                    <img src="Tropical Mangoes.webp" alt="Mangoes" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Tropical Mangoes</h3>
+                        <p class="text-gray-600">$5.99/kg</p>
+                        <div class="mt-4 flex items-center">
+                            <input type="number" min="1" value="1" class="w-16 p-1 border rounded mr-2"
+                                id="quantity-mangoes">
+                            <button onclick="addToCart('Tropical Mangoes', 5.99, 'mangoes')"
+                                class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Add to
+                                Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden">
+                    <img src="Sweet Pineapples.webp" alt="Pineapples" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Sweet Pineapples</h3>
+                        <p class="text-gray-600">$3.99/kg</p>
+                        <div class="mt-4 flex items-center">
+                            <input type="number" min="1" value="1" class="w-16 p-1 border rounded mr-2"
+                                id="quantity-pineapples">
+                            <button onclick="addToCart('Sweet Pineapples', 3.99, 'pineapples')"
+                                class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Add to
+                                Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden">
+                    <img src="Seedless Grapes.webp" alt="Grapes" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Seedless Grapes</h3>
+                        <p class="text-gray-600">$4.49/kg</p>
+                        <div class="mt-4 flex items-center">
+                            <input type="number" min="1" value="1" class="w-16 p-1 border rounded mr-2"
+                                id="quantity-grapes">
+                            <button onclick="addToCart('Seedless Grapes', 4.49, 'grapes')"
+                                class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Add to
+                                Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden">
+                    <img src="Juicy Watermelons.webp"
+                        alt="Watermelons" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Juicy Watermelons</h3>
+                        <p class="text-gray-600">$2.49/kg</p>
+                        <div class="mt-4 flex items-center">
+                            <input type="number" min="1" value="1" class="w-16 p-1 border rounded mr-2"
+                                id="quantity-watermelons">
+                            <button onclick="addToCart('Juicy Watermelons', 2.49, 'watermelons')"
+                                class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Add to
+                                Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden">
+                    <img src="Ripe Peaches.webp" alt="Peaches" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Ripe Peaches</h3>
+                        <p class="text-gray-600">$3.79/kg</p>
+                        <div class="mt-4 flex items-center">
+                            <input type="number" min="1" value="1" class="w-16 p-1 border rounded mr-2"
+                                id="quantity-peaches">
+                            <button onclick="addToCart('Ripe Peaches', 3.79, 'peaches')"
+                                class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Add to
+                                Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden">
+                    <img src="Crisp Pears.webp" alt="Pears" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Crisp Pears</h3>
+                        <p class="text-gray-600">$3.29/kg</p>
+                        <div class="mt-4 flex items-center">
+                            <input type="number" min="1" value="1" class="w-16 p-1 border rounded mr-2"
+                                id="quantity-pears">
+                            <button onclick="addToCart('Crisp Pears', 3.29, 'pears')"
+                                class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Add to
+                                Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden">
+                    <img src="Fresh Blueberries.webp" alt="Blueberries" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Fresh Blueberries</h3>
+                        <p class="text-gray-600">$6.99/kg</p>
+                        <div class="mt-4 flex items-center">
+                            <input type="number" min="1" value="1" class="w-16 p-1 border rounded mr-2"
+                                id="quantity-blueberries">
+                            <button onclick="addToCart('Fresh Blueberries', 6.99, 'blueberries')"
+                                class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Add to
+                                Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden">
+                    <img src="Zesty Kiwi.webp" alt="Kiwi" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Zesty Kiwi</h3>
+                        <p class="text-gray-600">$5.49/kg</p>
+                        <div class="mt-4 flex items-center">
+                            <input type="number" min="1" value="1" class="w-16 p-1 border rounded mr-2"
+                                id="quantity-kiwi">
+                            <button onclick="addToCart('Zesty Kiwi', 5.49, 'kiwi')"
+                                class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Add to
+                                Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-800 text-center mb-8">Complete Your Purchase</h2>
+            <div class="max-w-lg mx-auto">
+                <p class="text-lg text-gray-600 text-center mb-4">We deliver to Owerri, Imo State. Select your location and contact us via Email or WhatsApp to place your order or send us a message.</p>
+                <div class="mb-4">
+                    <label for="location" class="block text-gray-600 mb-2">Select Your Location:</label>
+                    <select id="location" class="w-full p-2 border rounded">
+                        <option value="" disabled selected>Select your location</option>
+                        <option value="Ikenegbu">Ikenegbu</option>
+                        <option value="New Owerri">New Owerri</option>
+                        <option value="Orji">Orji</option>
+                        <option value="Egbu">Egbu</option>
+                        <option value="Emekuku">Emekuku</option>
+                        <option value="Naze">Naze</option>
+                        <option value="Nekede">Nekede</option>
+                        <option value="Ulakwo">Ulakwo</option>
+                        <option value="Ihitta">Ihitta</option>
+                        <option value="Umuodu">Umuodu</option>
+                        <option value="Umuoyima">Umuoyima</option>
+                        <option value="Umuororonjo">Umuororonjo</option>
+                        <option value="Amawom">Amawom</option>
+                        <option value="Umunahu">Umunahu</option>
+                        <option value="Avu">Avu</option>
+                        <option value="Oforola">Oforola</option>
+                        <option value="Umuguma">Umuguma</option>
+                        <option value="Okuku">Okuku</option>
+                        <option value="Emeabiam">Emeabiam</option>
+                        <option value="Obinze">Obinze</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="contact-method" class="block text-gray-600 mb-2">Choose Contact Method:</label>
+                    <select id="contact-method" class="w-full p-2 border rounded">
+                        <option value="whatsapp">WhatsApp</option>
+                        <option value="email">Email</option>
+                    </select>
+                </div>
+
+                <button onclick="proceedToContact()"
+                    class="bg-green-600 text-white px-6 py-3 rounded hover:bg-green-700 w-full block text-center">Proceed
+                    to Contact</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mt-4 text-center">
+                <button onclick="togglePolicy('terms')" class="text-gray-300 hover:text-white mx-2">Terms</button>
+                <button onclick="togglePolicy('cookies')" class="text-gray-300 hover:text-white mx-2">Cookies</button>
+                <button onclick="togglePolicy('privacy')" class="text-gray-300 hover:text-white mx-2">Privacy
+                    Policy</button>
+                <button onclick="togglePolicy('faq')" class="text-gray-300 hover:text-white mx-2">FAQ</button>
+            </div>
+            <div id="terms" class="hidden mt-4 text-gray-300">
+                <h3 class="text-lg font-semibold">Terms of Service</h3>
+                <p>Welcome to FreshPicks. By using our website, you agree to these terms. We provide fresh fruits
+                    sourced from local farms in Owerri, Imo State. All purchases are subject to availability. Payments
+                    are processed securely, and we do not store payment information. You agree to provide accurate
+                    contact and delivery information. FreshPicks reserves the right to modify these terms at any time.
+                    For any disputes, contact us at orders@anikpefidelis21@gmail.com.</p>
+            </div>
+            <div id="cookies" class="hidden mt-4 text-gray-300">
+                <h3 class="text-lg font-semibold">Cookies Policy</h3>
+                <p>FreshPicks uses cookies to enhance your browsing experience. Cookies help us track your cart and
+                    preferences. We use essential cookies for website functionality and may use analytics cookies to
+                    improve our services. By using our site, you consent to our use of cookies. You can manage cookie
+                    preferences in your browser settings. For more information, contact us at
+                    orders@anikpefidelis21@gmail.com.</p>
+            </div>
+            <div id="privacy" class="hidden mt-4 text-gray-300">
+                <h3 class="text-lg font-semibold">Privacy Policy</h3>
+                <p>At FreshPicks, we value your privacy. We collect only necessary information, such as your name,
+                    contact details and delivery address to process orders. We do not share your information with
+                    third parties except as required for delivery or legal purposes. Your data is stored securely and
+                    retained only as long as necessary. You may request data deletion by contacting us at
+                    orders@anikpefidelis21@gmail.com.</p>
+            </div>
+            <div id="faq" class="hidden mt-4 text-gray-300">
+                <h3 class="text-lg font-semibold">Frequently Asked Questions</h3>
+                <p><strong>How do I place an order?</strong> Add items to your cart, select a contact method (WhatsApp
+                    or Email), and proceed to contact us to finalize your order.</p>
+                <p><strong>Where do you deliver?</strong> We currently deliver within Owerri, Imo State.</p>
+                <p><strong>What payment methods are available?</strong> Payment details will be provided via WhatsApp or
+                    Email upon order confirmation.</p>
+                <p><strong>Can I modify my order?</strong> Modifications can be made before the order is confirmed.
+                    Contact us at orders@anikpefidelis21@gmail.com for assistance.</p>
+                <p><strong>What if I receive damaged fruits?</strong> Please contact us within 24 hours of delivery at
+                    orders@anikpefidelis21@gmail.com, and we will arrange a replacement or refund.</p>
+            </div>
+            <p class="text-center mt-4">&copy; 2025 FreshPicks. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('hidden');
+        });
+
+        let cart = [];
+
+        function addToCart(itemName, price, itemId) {
+            const quantity = parseInt(document.getElementById(`quantity-${itemId}`).value);
+            if (quantity > 0) {
+                cart.push({ name: itemName, price: price, quantity: quantity });
+                alert(`${quantity} ${itemName} added to cart!`);
+            } else {
+                alert('Please select a valid quantity.');
+            }
+        }
+
+        function proceedToContact() {
+            if (cart.length === 0) {
+                alert('Your cart is empty. Please add items before proceeding.');
+                return;
+            }
+
+            const location = document.getElementById('location').value;
+            if (!location) {
+                alert('Please select a location.');
+                return;
+            }
+
+            const contactMethod = document.getElementById('contact-method').value;
+            let orderDetails = 'Order Details:\n';
+            let total = 0;
+
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                orderDetails += `${item.quantity} x ${item.name} - $${itemTotal.toFixed(2)}\n`;
+                total += itemTotal;
+            });
+            orderDetails += `\nTotal: $${total.toFixed(2)}\nDelivery Location: ${location}, Owerri, Imo State`;
+
+            if (contactMethod === 'whatsapp') {
+                const whatsappUrl = `https://wa.me/9036531383?text=${encodeURIComponent("I'd like to place an order at FreshPicks.\n\n" + orderDetails)}`;
+                window.open(whatsappUrl, '_blank');
+            } else {
+                const emailUrl = `mailto:orders@anikpefidelis21@gmail.com?subject=FreshPicks Order&body=${encodeURIComponent(orderDetails)}`;
+                window.location.href = emailUrl;
+            }
+        }
+
+        function togglePolicy(policyId) {
+            const policies = ['terms', 'cookies', 'privacy', 'faq'];
+            policies.forEach(id => {
+                const element = document.getElementById(id);
+                if (id === policyId) {
+                    element.classList.toggle('hidden');
+                } else {
+                    element.classList.add('hidden');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
